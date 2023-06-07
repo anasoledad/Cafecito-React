@@ -1,34 +1,23 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import logo from "../../assets/logo.png";
+import { Navbar, Container, Nav } from "react-bootstrap";
+// import { Link, NavLink} from 'react-router-dom';
 
 
 const Menu = () => {
   return (
-    <>
-      <Navbar bg="danger" variant="dark" className="pt-2">
-        <Container>
-        <Navbar.Brand href="#home">
-            <img
-              alt="logo"
-              src={logo}
-              width="40"
-              height="47"
-              className="d-inline-block align-top pt-0 pb-2"
-            />{' '}
-            <span className="fs-3 ps-1">Cafecito</span> 
-          </Navbar.Brand>
+    <Navbar bg="danger" variant="dark" expand="lg">
+      <Container>
+        <Navbar.Brand>Cafecito</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#features">Registro</Nav.Link>
-            <Nav.Link href="#pricing">Administrador</Nav.Link>
-            <Nav.Link href="#pricing">Login</Nav.Link>
+            <Nav.Link className='nav-item nav-link' to={'/'}>Inicio</Nav.Link>
+            <Nav.Link className='nav-item nav-link' to={'/registro'}>Registro</Nav.Link>
+            <Nav.Link className='nav-item nav-link' to={'/administrador'}>Administrador</Nav.Link>
+            <Nav.Link className='nav-item nav-link' to={'/login'}>Login</Nav.Link>
           </Nav>
-        </Container>
-      </Navbar>
-    </>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
