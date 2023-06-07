@@ -44,6 +44,9 @@ const CrearProducto = () => {
           </Form.Select>
        
         </Form.Group>
+        <Form.Group>
+            
+        </Form.Group>
         <Button variant="primary" type="submit">
           Guardar
         </Button>
