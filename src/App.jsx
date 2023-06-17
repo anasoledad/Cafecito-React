@@ -12,6 +12,8 @@ import EditarProducto from "./components/views/producto/EditarProducto";
 import Administrador from "./components/views/Administrador";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import RutasProtegidas from "./components/routers/RutasProtegidas";
+import RutasAdministrador from "./components/routers/RutasAdministrador";
 
 function App() {
   const usuarioSessionStorage = JSON.parse(sessionStorage.getItem('usuario')) || {}
@@ -24,10 +26,12 @@ function App() {
           <Route exact path="/" element={<Inicio></Inicio>}></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
           <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
+          <Route path="/administrador/*" element={
+            <RutasProtegidas>
+              <RutasAdministrador></RutasAdministrador>
+            </RutasProtegidas>
+          }></Route>
           <Route exact path="/detalleproducto" element={<DetalleProducto></DetalleProducto>}></Route>
-          <Route exact path="/administrador" element={<Administrador></Administrador>}></Route>
-          <Route exact path="/administrador/crear" element={<CrearProducto></CrearProducto>}></Route>
-          <Route exact path="/administrador/editar" element={<EditarProducto></EditarProducto>}></Route>          
           <Route path="*" element={<Error404></Error404>}></Route>
         </Routes>
         <Footer></Footer>
