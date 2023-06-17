@@ -17,9 +17,9 @@ const Login = () => {
         //debo loguear el usuario
         sessionStorage.setItem("usuario", JSON.stringify(respuesta));
         setUsuarioLogeado(respuesta);
-                Swal.fire("Bienvenido", "Ingresaste correctamente", "success");
-                /* lo reedirigimos a otra page */
-                navegacion("/administrador");
+        Swal.fire("Bienvenido", "Ingresaste correctamente", "success");
+        /* lo reedirigimos a otra page */
+        navegacion("/administrador");
       } else {
         //indicar datos errores al usuario
         Swal.fire("Error", "Error en password o en contraseña", "error");
@@ -39,10 +39,12 @@ const Login = () => {
                 type="email"
                 placeholder="Ingrese un email"
                 {...register("email", {
-                  required: "este dato es obligatorio",
+                  required: "El email es obligatorio",
                   pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Ingresa un correo electrónico válido",
+                    value:
+                      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                    message:
+                      "El email debe contener @ y terminar . com/es/com.ar u otra terminacion",
                   },
                 })}
               />
@@ -57,7 +59,7 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 {...register("password", {
-                  required: "este dato es obligatorio",
+                  required: "La contraseña es obligatoria",
                   minLength: {
                     value: 6,
                     message: "La contraseña debe tener al menos 6 caracteres",
@@ -67,17 +69,19 @@ const Login = () => {
                     message:
                       "La contraseña debe tener como maximo 20 caracteres",
                   },
-                  // pattern: {
-                  //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-                  //   message:
-                  //     "La contraseña debe contener al menos una letra mayúscula, una minúscula y un número",
-                  // },
+                  pattern: {
+                    value:
+                      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                    message:
+                      "El password debe contener 8 caracteres (al menos 1 letra mayúscula, 1 letra minúscula y 1 numero) también puede incluir carácteres especiales",
+                  },
                 })}
               />
+              <Form.Group className="text-danger">
+                {errors.password?.message}
+              </Form.Group>
             </Form.Group>
-            <Form.Group className="text-danger">
-              {errors.password?.message}
-            </Form.Group>
+
             <Button variant="primary" type="submit">
               Ingresar
             </Button>
