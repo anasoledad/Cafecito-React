@@ -1,14 +1,17 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { login } from "../helpers/queries";
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+  const navegacion = useNavigate();
 
   const onSubmit = (usuario) => {
     // console.log(usuario)
@@ -16,13 +19,12 @@ const Login = () => {
       if (respuesta) {
         //debo loguear el usuario
         sessionStorage.setItem("usuario", JSON.stringify(respuesta));
-        setUsuarioLogeado(respuesta);
+        setUsuarioLogueado(respuesta);
         Swal.fire("Bienvenido", "Ingresaste correctamente", "success");
-        /* lo reedirigimos a otra page */
-        navegacion("/administrador");
+        navegacion('/administrador');
       } else {
         //indicar datos errores al usuario
-        Swal.fire("Error", "Error en password o en contraseña", "error");
+        Swal.fire("Error", "Email o en contraseña incorrectos", "error");
       }
     });
   };
@@ -48,9 +50,9 @@ const Login = () => {
                   },
                 })}
               />
-              <Form.Group className="text-danger">
+              <Form.Text className="text-danger">
                 {errors.email?.message}
-              </Form.Group>
+              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -77,9 +79,9 @@ const Login = () => {
                   },
                 })}
               />
-              <Form.Group className="text-danger">
+              <Form.Text className="text-danger">
                 {errors.password?.message}
-              </Form.Group>
+              </Form.Text>
             </Form.Group>
 
             <Button variant="primary" type="submit">
