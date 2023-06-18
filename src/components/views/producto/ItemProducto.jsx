@@ -1,9 +1,10 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { consultaBorrarProducto, obtenerProductos } from "../../helpers/queries";
 
 
-const ItemProducto = ({producto}) => {
+const ItemProducto = ({producto,setProductos}) => {
 
 const borrarProducto = ()=>{
   Swal.fire({
@@ -17,12 +18,25 @@ const borrarProducto = ()=>{
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire(
-        'Producto eliminado',
-        `El producto ${producto.nombreProducto} fue eliminado`,
-        'success'
-      )
+      
       //aqui tengo que hacer la peticion DELETE
+      consultaBorrarProducto(producto.id).then((respuesta)=>{
+        if(respuesta.status === 200){
+          Swal.fire(
+            'Producto eliminado',
+            `El producto ${producto.nombreProducto} fue eliminado`,
+            'success'
+          );
+          // actualizar el state producto del componente Administrador
+          obtenerProductos().then((respuesta) => setProductos(respuesta))
+        }else{
+          Swal.fire(
+            'Se produjo un error',
+            'Intete realizar esta operacion mas tarde',
+            'error'
+          )
+        }
+      })
     }
   })
 }
