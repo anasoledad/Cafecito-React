@@ -1,12 +1,36 @@
 {
-    "productos": [
-      { "id": 1, "nombreProducto": "café", "precio": 200, "categoría": "bebida caliente", "descripción":"alguna descripción", "imagen":"linkimagen"},
-      { "id": 2, "nombreProducto": "té", "precio": 100, "categoría": "bebida caliente", "descripción":"alguna descripción", "imagen":"linkimagen"},
-      { "id": 3, "nombreProducto": "medialuna", "precio": 150, "categoría": "dulce", "descripción":"alguna descripción", "imagen":"linkimagen"}
-
-    ],
-    "usuarios": [
-      { "id": 1, "nombreUsuario": "admin", "email": "admin@rollingcode.com", "password":"123456aA" }
-    ]
-
-  }
+  "productos": [
+    {
+      "id": 1,
+      "nombreProducto": "café",
+      "precio": 200,
+      "categoría": "bebida caliente",
+      "descripción": "alguna descripción",
+      "imagen": "linkimagen"
+    },
+    {
+      "id": 2,
+      "nombreProducto": "té",
+      "precio": 100,
+      "categoría": "bebida caliente",
+      "descripción": "alguna descripción",
+      "imagen": "linkimagen"
+    },
+    {
+      "id": 3,
+      "nombreProducto": "medialuna",
+      "precio": 150,
+      "categoría": "dulce",
+      "descripción": "alguna descripción",
+      "imagen": "linkimagen"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombreUsuario": "admin",
+      "email": "admin@rollingcode.com",
+      "password": "123456aA"
+    }
+  ]
+}

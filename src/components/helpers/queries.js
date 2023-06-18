@@ -1,5 +1,14 @@
 //llamar la variable de entorno
 const URL_USUARIO = import.meta.env.VITE_API_USUARIO;
+const URL_Producto = import.meta.env.VITE_API_PRODUCTO;
+
+
+/*
+Peticiones GET obtener un listado de elementos o un elemento
+Peticiones POST crear un elemento
+Peticiones PUT editar un elemento
+Peticiones DELETE borrar un elemento
+ */
 
 export const login = async (usuario)=>{
     console.log(usuario)
@@ -30,7 +39,26 @@ export const login = async (usuario)=>{
     }
 }
 
+export const obtenerProductos = async ()=>{
+    try{
+        const respuesta = await fetch(URL_Producto)
+        const listaProductos = await respuesta.json();
+        return listaProductos;
+    }catch(error){
+        console.log(error)
+    }
+}
 
+export const consultaBorrarProducto = async(id)=>{
+    try{
+        const respuesta = await fetch(`${URL_Producto}/${id}`, {
+            method: 'DELETE'
+        });
+        return respuesta;
+    }catch (error){
+        console.log(error);
+    }
+}
 
 
 // const URL_PRODUCTO = import.meta.env.VITE_API_PRODUCTO
