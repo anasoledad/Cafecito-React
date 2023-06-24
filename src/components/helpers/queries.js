@@ -48,6 +48,15 @@ export const obtenerProductos = async ()=>{
         console.log(error)
     }
 }
+export const obtenerProducto = async (id)=>{
+    try{
+        const respuesta = await fetch(`${URL_Producto}/${id}`);
+        const productoEditar = await respuesta.json();
+        return productoEditar;
+    }catch(error){
+        console.log(error)
+    }
+}
 
 export const consultaBorrarProducto = async(id)=>{
     try{
@@ -73,7 +82,9 @@ export const consultaCrearProducto = async (producto) => {
     } catch (error) {
         console.log(error);
     }
-};
+}
+
+
 
 
 // const URL_PRODUCTO = import.meta.env.VITE_API_PRODUCTO
