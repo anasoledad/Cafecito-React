@@ -7,6 +7,34 @@
       "categoría": "bebida caliente",
       "descripción": "alguna descripción",
       "imagen": "linkimagen"
+    },
+    {
+      "categoria": "dulce",
+      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
+      "nombreProducto": "Medialuna",
+      "precio": "150",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Té de manzanilla",
+      "precio": "150",
+      "imagen": "https://static.tuasaude.com/media/article/cy/iu/beneficios-do-cha-de-camomila_13767_l.jpg",
+      "categoria": "bebida caliente",
+      "id": 3
+    },
+    {
+      "nombreProducto": "Pan 1kg",
+      "precio": "500",
+      "imagen": "https://poramoralhorno.com/wp-content/uploads/2020/11/20200727_134403-1536x747.jpg",
+      "categoria": "salado",
+      "id": 4
+    },
+    {
+      "nombreProducto": "Brownie",
+      "precio": "250",
+      "imagen": "https://www.clarin.com/img/2022/05/24/KEaLLgGNb_1200x630__1.jpg",
+      "categoria": "dulce",
+      "id": 5
     }
   ],
   "usuarios": [
