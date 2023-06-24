@@ -10,7 +10,15 @@ const Administrador = () => {
   useEffect(()=>{
     obtenerProductos().then((respuesta)=>{
       console.log(respuesta);
-      setProductos(respuesta);
+      if (respuesta) {
+        setRecetas(respuesta);
+    } else {
+        Swal.fire(
+            "Se produjo un error !",
+            `Intentele realizar esta operacion  mas tarde.`,
+            "error"
+        );
+    }
     })
   },[])
 
