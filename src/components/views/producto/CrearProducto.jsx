@@ -72,6 +72,18 @@ const CrearProducto = () => {
 
             {...register("imagen", {
               required: "La imagen es obligatoria",
+              min: {
+                value: 8,
+                message: "La URL debe tener como minimo 8 caracteres",
+            },
+            max: {
+                value: 200,
+                message: "La URL debe tener  como maximo 200 caracteres",
+            },
+            pattern: {
+                value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif))$/,
+                message: "Por favor, ingresa una URL válida de imagen",
+            },
             })}
       
           />
