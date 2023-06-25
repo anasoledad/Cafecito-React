@@ -1,20 +1,25 @@
 import { Col, Card, Button } from "react-bootstrap";
 
-const CardProducto = () => {
+const CardProducto = ({productos}) => {
   return (
-    <Col md={4} ld={3} className="mb-3">
-      <Card>
+    <>
+    {productos.map((producto)=>( 
+    <Col md={4} lg={3} key={producto.id} className="mb-3">
+      <Card className="h-100">
         <Card.Img
           variant="top"
-          src="https://images.pexels.com/photos/10273537/pexels-photo-10273537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={producto.imagen}
+          alt={producto.nombre}
         />
         <Card.Body>
-          <Card.Title>MOCHACCINO CANELA</Card.Title>
-          <Card.Text>$1.740,00</Card.Text>
+          <Card.Title>{producto.nombreProducto}</Card.Title>
+          <Card.Text>${producto.precio}</Card.Text>
           <Button variant="primary">Ver detalle</Button>
         </Card.Body>
       </Card>
     </Col>
+    ))}
+    </>
   );
 };
 
