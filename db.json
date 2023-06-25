@@ -1,12 +1,11 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombreProducto": "café",
+      "nombreProducto": "Café",
       "precio": 200,
-      "categoría": "bebida caliente",
-      "descripción": "alguna descripción",
-      "imagen": "linkimagen"
+      "imagen": "https://i.blogs.es/421374/cafe-con-leche2/1366_2000.jpg",
+      "categoria": "bebida caliente",
+      "id": 1
     },
     {
       "categoria": "dulce",
@@ -31,7 +30,7 @@
     },
     {
       "nombreProducto": "Brownie",
-      "precio": "250",
+      "precio": "350",
       "imagen": "https://www.clarin.com/img/2022/05/24/KEaLLgGNb_1200x630__1.jpg",
       "categoria": "dulce",
       "id": 5

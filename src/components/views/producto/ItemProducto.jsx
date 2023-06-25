@@ -49,7 +49,7 @@ const borrarProducto = ()=>{
       <td>{producto.imagen}</td>
       <td>{producto.categoria}</td>
       <td>
-        <Link className="btn btn-warning" to={`/administrador/editar/${producto.id}`}>Editar</Link>
+      <Link className="btn btn-warning" to={`/administrador/editar/${producto.id}`}>Editar</Link>
         <Button variant="danger" onClick={borrarProducto}>
           Borrar
         </Button>

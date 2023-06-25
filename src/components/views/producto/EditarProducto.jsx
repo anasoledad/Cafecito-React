@@ -1,37 +1,50 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { obtenerProducto } from "../../helpers/queries";
-import { useParams } from "react-router-dom";
+import { consultaEditarProducto, obtenerProducto } from "../../helpers/queries";
+import { useParams, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const EditarProducto = () => {
-  const {id}=useParams();
+  const { id } = useParams();
+  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    setValue
+    setValue,
   } = useForm();
 
-  useEffect(()=>{
-   obtenerProducto(id).then((respuesta)=>{
-      if(respuesta.status === 200){
-        setValue('nombreProducto',respuesta.nombreProducto);
-        setValue('categoria',respuesta.categoria);
-        setValue('imagen',respuesta.imagen);
-        setValue('precio',respuesta.precio);
+  useEffect(() => {
+    obtenerProducto(id).then((respuesta) => {
+      console.log(respuesta);
+      setValue("nombreProducto", respuesta.nombreProducto);
+      setValue("precio", respuesta.precio);
+      setValue("categoria", respuesta.categoria);
+      setValue("imagen", respuesta.imagen);
+    });
+  }, []);
 
+  const onSubmit = (productoEditado) => {
+    console.log(productoEditado);
+    consultaEditarProducto(productoEditado, id).then((respuesta) => {
+      if (respuesta && respuesta.status === 200) {
+        Swal.fire(
+          "Producto actualizado",
+          `El producto: ${productoEditado.nombreProducto} fue actualizado correctamente`,
+          "success"
+        );
+        navegacion("/administrador");
+      } else {
+        Swal.fire(
+          "Ocurrio un error",
+          `El producto: ${productoEditado.nombreProducto} no fue actualizado, intente esta operacion en breve`,
+          "error"
+        );
       }
-   })
-
-  }, [])
-
-  const onSubmit = (productoNuevo) => {
-    console.log(productoNuevo);
+    });
   };
 
-  
   return (
     <section className="container mainSection">
       <h1 className="display-4 mt-5">Editar producto</h1>
@@ -57,7 +70,6 @@ const EditarProducto = () => {
           <Form.Text className="text-danger">
             {errors.nombreProducto?.message}
           </Form.Text>
-         
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Precio*</Form.Label>
@@ -79,42 +91,38 @@ const EditarProducto = () => {
           <Form.Text className="text-danger">
             {errors.precio?.message}
           </Form.Text>
-       
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
           <Form.Label>Imagen URL*</Form.Label>
           <Form.Control
             type="text"
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
-      
             {...register("imagen", {
               required: "La imagen es obligatoria",
               min: {
                 value: 8,
                 message: "La URL debe tener como minimo 8 caracteres",
-            },
-            max: {
+              },
+              max: {
                 value: 200,
                 message: "La URL debe tener  como maximo 200 caracteres",
-            },
-            pattern: {
+              },
+              pattern: {
                 value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif))$/,
                 message: "Por favor, ingresa una URL válida de imagen",
-            },
+              },
             })}
-      
           />
           <Form.Text className="text-danger">
             {errors.imagen?.message}
           </Form.Text>
-      
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Categoria*</Form.Label>
           <Form.Select
-           {...register("categoria", {
-            required: "La imagen es obligatoria",
-          })}
+            {...register("categoria", {
+              required: "La imagen es obligatoria",
+            })}
           >
             <option value="">Seleccione una opcion</option>
             <option value="bebida caliente">Bebida caliente</option>
@@ -125,7 +133,6 @@ const EditarProducto = () => {
           <Form.Text className="text-danger">
             {errors.categoria?.message}
           </Form.Text>
-       
         </Form.Group>
         <Button variant="primary" type="submit">
           Guardar
