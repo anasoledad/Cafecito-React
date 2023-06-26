@@ -14,7 +14,7 @@ const Login = ({setUsuarioLogueado}) => {
   const navegacion = useNavigate();
 
   const onSubmit = (usuario) => {
-    // console.log(usuario)
+    console.log(usuario)
     login(usuario).then((respuesta) => {
       if (respuesta) {
         //debo loguear el usuario

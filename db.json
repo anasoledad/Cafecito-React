@@ -47,6 +47,12 @@
       "nombreUsuario": "admin",
       "email": "admin@rollingcode.com",
       "password": "123456aA"
+    },
+    {
+      "nombreUsuario": "anasoledad",
+      "email": "anasoledad@gmail.com",
+      "password": "123Ana",
+      "id": 2
     }
   ]
 }

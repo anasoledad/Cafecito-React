@@ -39,6 +39,23 @@ export const login = async (usuario)=>{
     }
 }
 
+export const signUp = async (usuario) => {
+    try {
+        const respuesta = await fetch(URL_USUARIO, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuario),
+        });
+
+        const nuevoUsuario = await respuesta.json();
+        return nuevoUsuario;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const obtenerProductos = async ()=>{
     try{
         const respuesta = await fetch(URL_Producto)

@@ -34,9 +34,9 @@ const CrearProducto = () => {
 
   return (
     <section className="container mainSection">
-      <h1 className="display-4 mt-5">Nuevo producto</h1>
+      <h1 className="display-4 mt-5 ps-md-5">Nuevo producto</h1>
       <hr />
-      <Form onSubmit={handleSubmit(onSubmit)} className="mx-md-5 px-md-5 border border-3 border-secondary-subtle rounded-2 my-4 bg-danger-subtle">
+      <Form onSubmit={handleSubmit(onSubmit)} className="mx-md-5 px-2 px-md-5 border border-3 border-secondary-subtle rounded-2 my-4 bg-danger-subtle">
         <Form.Group className="mb-3 mt-4" controlId="formNombreProdcuto">
           <Form.Label>Producto*</Form.Label>
           <Form.Control
