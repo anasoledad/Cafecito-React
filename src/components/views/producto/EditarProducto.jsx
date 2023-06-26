@@ -22,6 +22,7 @@ const EditarProducto = () => {
       setValue("precio", respuesta.precio);
       setValue("categoria", respuesta.categoria);
       setValue("imagen", respuesta.imagen);
+      setValue("descripcion", respuesta.descripcion);
     });
   }, []);
 
@@ -49,8 +50,8 @@ const EditarProducto = () => {
     <section className="container mainSection">
       <h1 className="display-4 mt-5">Editar producto</h1>
       <hr />
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group className="mb-3" controlId="formNombreProdcuto">
+      <Form onSubmit={handleSubmit(onSubmit)} className="mx-md-5 px-md-5 border border-3 border-secondary-subtle rounded-2 my-4 bg-danger-subtle">
+        <Form.Group className="mb-3 mt-4" controlId="formNombreProdcuto">
           <Form.Label>Producto*</Form.Label>
           <Form.Control
             type="text"
@@ -134,9 +135,33 @@ const EditarProducto = () => {
             {errors.categoria?.message}
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Guardar
-        </Button>
+        <Form.Group className="mb-3">
+          <Form.Label>Descripción</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            placeholder="Breve descripción del producto"
+            {...register("descripcion", {
+              required: "este campo es obligatorio",
+              minLength: {
+                value: 8,
+                message: "Este campo debe tener como minimo 8 caracteres",
+              },
+              maxLength: {
+                value: 1000,
+                message: "Este campo debe tener  como maximo 1000 caracteres",
+              },
+            })}
+          ></Form.Control>
+          <Form.Text className="text-danger">
+            {errors.descripcion?.message}
+          </Form.Text>
+        </Form.Group>
+        <div className="d-flex justify-content-end">
+          <Button variant="dark mb-4 px-5" type="submit">
+            Guardar
+          </Button>
+        </div>
       </Form>
     </section>
   );

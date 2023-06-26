@@ -19,7 +19,7 @@ const Inicio = () => {
         alt="fondo cafe"
       />
       <Container>
-        <h1 className="display-4">Nuestros Productos</h1>
+        <h1 className="display-5 py-3 fw-bold">Nuestros Productos</h1>
         <hr />
         <Row>
             <CardProducto productos={productos}></CardProducto>

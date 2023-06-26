@@ -5,20 +5,23 @@
       "precio": 200,
       "imagen": "https://i.blogs.es/421374/cafe-con-leche2/1366_2000.jpg",
       "categoria": "bebida caliente",
+      "descripcion": "Combinación perfecta entre leche, chocolate, café intenso y un toque de canela. Café con granos 100% de arábica brasileña. Todo en una capsula inteligente.",
       "id": 1
     },
     {
-      "categoria": "dulce",
-      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
       "nombreProducto": "Medialuna",
       "precio": "150",
+      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
+      "categoria": "dulce",
+      "descripcion": "Nuestra medialuna: suavidad, dulzura y textura hojaldrada en cada bocado. Disfruta del sabor irresistible y el aroma tentador. ¡",
       "id": 2
     },
     {
       "nombreProducto": "Té de manzanilla",
       "precio": "150",
-      "imagen": "https://static.tuasaude.com/media/article/cy/iu/beneficios-do-cha-de-camomila_13767_l.jpg",
+      "imagen": "https://www.clikisalud.net/wp-content/uploads/2020/05/te-de-manzanilla-cuarente-a.jpg",
       "categoria": "bebida caliente",
+      "descripcion": "Deléitate con una taza reconfortante de té de manzanilla. Su delicado aroma floral y su sabor suave te brindarán una sensación de calma y relajación. Disfruta de sus propiedades digestivas y sus efectos relajantes. ¡El compañero perfecto para momentos de tranquilidad y bienestar!",
       "id": 3
     },
     {
@@ -26,6 +29,7 @@
       "precio": "500",
       "imagen": "https://poramoralhorno.com/wp-content/uploads/2020/11/20200727_134403-1536x747.jpg",
       "categoria": "salado",
+      "descripcion": "Nuestro pan, recién horneado, es la opción perfecta para disfrutar de una deliciosa y abundante porción de pan. Con una textura suave y un aroma irresistible, cada rebanada te transportará a la panadería tradicional. Ya sea para compartir en familia o para tus comidas diarias, este pan es la elección ideal para satisfacer tu apetito.",
       "id": 4
     },
     {
@@ -33,6 +37,7 @@
       "precio": "350",
       "imagen": "https://www.clarin.com/img/2022/05/24/KEaLLgGNb_1200x630__1.jpg",
       "categoria": "dulce",
+      "descripcion": "Delicioso brownie recién horneado con una textura suave y húmeda. Preparado con los mejores ingredientes, nuestro brownie combina el rico sabor del chocolate con un toque de nueces para crear una experiencia irresistible.",
       "id": 5
     }
   ],

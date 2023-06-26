@@ -20,10 +20,10 @@ const DetalleProducto = () => {
 
   return (
     <Container className="my-3 mainSection">
-      <Card>
+      <Card className="border-3 border-dark bg-secondary-subtle">
         <Row>
           <Col md={6}>
-            <Card.Img
+            <Card.Img className="img-detail"
               variant="top"
               src={producto.imagen}
               alt={producto.nombreProducto}
@@ -32,14 +32,14 @@ const DetalleProducto = () => {
           <Col md={6}>
             <Card.Body>
               <Card.Title>{producto.nombreProducto}</Card.Title>
-              <hr />
+              <hr className="text-danger border-4"/>
               <Card.Text>
-              Combinación perfecta entre leche, choclate, café intenso y un toque de canela. Café con granos 100% de arábica brasileña. Todo en una capsula inteligente.
+              {producto.descripcion}
               <br/>
               <br/>
-              <span className="text-danger fw-semibold ">Categoria:</span> {producto.categoria}
+              <span className="text-danger fw-bold ">Categoria: </span> <span className="fw-bold">{producto.categoria}</span>
               <br />
-              <span className="text-danger fw-semibold ">Precio:</span> ${producto.precio}</Card.Text>
+              <span className="text-danger fw-bold ">Precio: </span><span className="fw-bold"> ${producto.precio}</span></Card.Text>
             </Card.Body>
           </Col>
         </Row>
